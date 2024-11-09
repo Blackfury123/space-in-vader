@@ -16,6 +16,10 @@ YELLOW = (255, 255, 0)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
+# Load the background image
+background = pygame.image.load("download.jpeg")
+background = pygame.transform.scale(background, (screen_width, screen_height))
+
 # Set up the player
 player = pygame.Rect(375, 500, 50, 50)
 
@@ -54,8 +58,8 @@ while running:
             score += 1
             enemies.remove(enemy)  # Remove the enemy after a collision
 
-    # Clear the screen
-    screen.fill(BLACK)
+    # Draw the background
+    screen.blit(background, (0, 0))
 
     # Draw the player
     pygame.draw.rect(screen, YELLOW, player)
@@ -79,4 +83,3 @@ while running:
 
 # Quit the game properly
 pygame.quit()
-
